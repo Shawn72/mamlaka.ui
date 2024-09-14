@@ -1,0 +1,56 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "parser": "@babel/eslint-parser",
+    "plugins": [
+        "react",
+        "import",
+        "jsx-a11y"
+    ],
+    "rules": {
+        "react/prop-types": 0,
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": 0,
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "no-unused-vars": "off",
+        "jsx-a11y/label-has-associated-control": "off", //disable with: /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
+        "jsx-a11y/label-has-for": "off",
+        "jsx-a11y/anchor-is-valid":"off", //disable: /* eslint-disable jsx-a11y/anchor-is-valid */
+        "no-unreachable":"warn", //disable with: /* eslint-disable no-unreachable */
+        "react/react-in-jsx-scope": "off"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "requireConfigFile": false
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true,
+        "jest": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "eslint.workingDirectories": [
+            {
+                "mode": "auto"
+            }
+        ]
+    }
+}

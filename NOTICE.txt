@@ -1,0 +1,15 @@
+========================================================================================
+==  NOTICE file for use with the Apache License, Version 2.0,  =========================
+==  in this case for the Malaka UI =====================================================
+========================================================================================
+
+Mamlaka UI
+Copyright 2024 Shawn Andre Mbuvi,
+ 
+This product includes software developed by Shawn Andre Mbuvi ( Senior Software Engineer )
+
+=========================================================================================
+
+CAUTION: 
+1.	DO NOT TAMPER WITH THE LICENSE INCLUDED IN THIS DISTRIBUTION
+=========================================================================================

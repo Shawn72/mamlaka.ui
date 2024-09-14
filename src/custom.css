@@ -1,0 +1,223 @@
+/* the whole site body font face */
+body{
+  font-family: "Segoe UI Symbol", "Segoe UI Emoji", 
+  ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #E01A76;
+}
+
+/* favorite custom font-family */
+/* [ syntax: Font Family Name , generic family name ] */
+.font-mbuvi{
+  font-family:  "Segoe UI", sans-serif, "Segoe UI Symbol"
+   ui-sans-serif, system-ui;
+}
+
+.font-clarke{
+  font-family: "Segoe UI Symbol", "Segoe UI Emoji", 
+    ui-sans-serif, system-ui, sans-serif;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #035F87;
+  border-color: #E88311;
+}
+
+.checkBoxList {
+  list-style-type: none;
+  padding-left: 0%;
+}
+
+/* LOGIN AND REGISTER PAGES CSS */
+.login-box{
+  width: 30em!important;
+}
+
+.register-box{
+  width: 50em!important;
+}
+
+.register-page{
+  margin-top: 18em!important;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: block;
+  width: 100%;
+}
+/* custom react modal specs, vw: percentage of screen occupied by content */
+.react-modal {
+  width: 60vw; 
+  position: 'absolute';
+  margin-top: 50%;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
+  height: 35vw;
+}
+
+.fast-option {
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+/* position div content in the center */
+.content-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* word wrap specs */
+.wrap-me{
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.btn-content-left{
+  text-align: left;
+  padding:0.25em;
+}
+
+.sidebar{
+  padding-top: 1.5em!important
+}
+
+.nav-sidebar .nav-treeview {
+  padding-left: 1.8em!important;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+  color: #007bff;
+}
+
+[class*="sidebar-dark-"] .sidebar a:focus, [class*="sidebar-dark-"] .sidebar a:hover {
+  text-decoration: none;
+}
+
+.nav-sidebar .nav-item > .nav-link {
+  position: relative;
+}
+
+.sidebar-mini .main-sidebar .nav-link, .sidebar-mini-md .main-sidebar .nav-link, .sidebar-mini-xs .main-sidebar .nav-link {
+  width: auto!important
+}
+
+.hidden{
+  display:none
+}
+
+.dt-no-x-scroll .dataTables_scrollBody {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.dataTables_scrollBody {
+  overflow-x: auto !important;
+}
+.dt-buttons{
+  float:right!important;
+}
+
+div.dt-top-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.width-fixer{
+  width: 100%;
+}
+
+.hidden {
+  display:none;
+}
+
+.fa-xs {
+  font-size: 1.8em!important;
+}
+
+table.dataTable {
+  margin: 0!important;
+}
+
+[class*="sidebar-dark-"] {
+  background-color: #035F87!important;
+}
+
+.primary-color{
+  color: #035F87!important;
+ }
+ 
+ .secondary-color{
+   color: #E88311!important;
+ }
+ 
+
+.primary-widget{
+  color: aliceblue;
+  background-color: #035F87!important;
+}
+
+.secondary-widget{
+  color: aliceblue;
+  background-color: #E88311!important;
+}
+
+.widget-text{
+  color:aliceblue;
+}
+
+.modal-table{
+  width: 44em!important
+}
+
+.modal-div{
+  position: relative;
+  z-index: 2;
+}
+
+.modal-spinner-div{
+  position: relative;
+  z-index: 1;
+}
+
+.pop-spinner{
+  position: fixed;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: Black;
+  filter: alpha(opacity=60);
+  opacity: 0.6;
+  -moz-opacity: 0.8;
+}
+
+.danger{
+  color: red;
+}
+
+.nav-sidebar .nav-link p {
+  color: aliceblue!important;
+}
+
+
+

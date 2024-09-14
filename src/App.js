@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./custom.css"
+import Login from "./Auth/Login"
+import React, { Component } from "react"
+import { Layout } from "./Layouts/Layout"
+import Home from "./Pages/Dashboards/Home"
+import { Routes, Route,
+  BrowserRouter as Router } from "react-router-dom"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const checkSession = sessionStorage.length
+
+export default class App extends Component {
+  static displayName = App.name
+  render() {
+    return (   
+      checkSession > 0 ? (
+        <div>               
+          <Layout>                   
+            <Router>
+              <Routes>
+                <Route path="/" element={<App />} />
+                <Route index={true} element={<Login />} />
+                <Route exact path="/home" component={Home} />
+              </Routes>
+            </Router>
+          </Layout>
+        </div>
+
+      ) : (
+        <div>
+          <Layout>
+            <Routes> 
+              <Route path={"/"} element={<Login/>} />               
+            </Routes>
+          </Layout>
+        </div>
+      )
+    )
+  }
 }
-
-export default App;
