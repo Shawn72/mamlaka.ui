@@ -6,7 +6,7 @@ import Home from "./Pages/Dashboards/Home"
 import { Routes, Route,
   BrowserRouter as Router } from "react-router-dom"
 
-const checkSession = sessionStorage.length
+const checkSession = localStorage.length
 
 export default class App extends Component {
   static displayName = App.name

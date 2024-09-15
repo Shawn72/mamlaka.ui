@@ -36,11 +36,12 @@ export default class Login extends Component {
   
   login() {
     
-    if(!this.state.email){
+    if(this.state.email === ""){
       this.setState({ errorMsg: "Email field must be provided!", loading: false })
       return 
     }
-    if(!this.state.password){
+
+    if(this.state.password === ""){
       this.setState({ errorMsg: "Password field must be provided!", loading: false })
       return 
     }
@@ -54,7 +55,11 @@ export default class Login extends Component {
 
     $(".modalspinner").css("display", "block")
 
-    postDataNoToken("api/user/signin", loginData).then((result) => {
+
+    postDataNoToken("api/users/signin", loginData).then((result) => {
+
+      this.setState({ loading: false })
+      $(".modalspinner").css("display", "none")
 
       if (result?.isSuccessful && result?.accessToken) {
 
@@ -105,6 +110,7 @@ export default class Login extends Component {
   }
 
   render() {
+
     if (this.state.loading) {
       content = <strong>Processing...</strong>
     }
@@ -145,7 +151,7 @@ export default class Login extends Component {
                   type="text"
                   className="form-control"
                   placeholder="Please Enter Username"
-                  name="username"
+                  name="email"
                   onChange={this.onChange}
                   onKeyDown={this.onKeyDown}
                 />
@@ -169,8 +175,8 @@ export default class Login extends Component {
                 <div className="col-md-6">
                 </div>
                 <div className="col-md-6">
-                  <button id="btnLogind"
-                   className="btn btn-primary primary-widget font-mbuvi float-right" onClick={()=>this.login()}>
+                  <button id="btnLogin"
+                    className="btn btn-primary primary-widget font-mbuvi float-right" onClick={this.login}>
                     <i className="fas fa-sign-in-alt"></i>&nbsp;Login
                   </button>
                 </div>

@@ -5,8 +5,10 @@ import $ from "jquery"
 import jQuery from "jquery"
 import Swal from "sweetalert2"
 import React, { Component } from "react"
+import "datatables.net-dt/js/dataTables.dataTables"
+import "datatables.net-dt/css/jquery.dataTables.min.css"
 import withReactContent from "sweetalert2-react-content"
-import { logOut, sessionHelper, fullDateTimeOptions } from "../../Helpers/Helpers"
+import { logOut, sessionHelper } from "../../Helpers/Helpers"
 import { getDataWithToken } from "../../Services/apiServices"
 
 const mSwal = withReactContent(Swal)
@@ -40,7 +42,7 @@ export default class Home extends Component {
     //transactions counter
     this.setState({ loading: true })
 
-    getDataWithToken("api/transactions/list" ).then((response) => {
+    getDataWithToken("api/payment/transactions" ).then((response) => {
       if (response === undefined) {
         console.log("re-loading data")
         return
@@ -54,7 +56,17 @@ export default class Home extends Component {
         $(".modalspinner").css("display", "none")
         this.setState({loading: true})
       }
-    })
+    })  
+
+  }
+  
+
+  renderVoid(e) {
+    e.preventDefault()
+  }
+
+
+  render() {
 
     //initialize datatable
     jQuery(function () {
@@ -116,9 +128,9 @@ export default class Home extends Component {
             targets: "_all"
           }
         ],
-        // order: [
-        //   [1, "asc"]
-        // ],
+        order: [
+          [1, "asc"]
+        ],
         bDestroy: true,
         info: true,
         processing: true,
@@ -126,17 +138,9 @@ export default class Home extends Component {
         responsive: true
       })
       $("#tbl_transactions_list").DataTable().columns.adjust()
+      $("#tbl_transactions_list").DataTable().column(0).visible(false)
     })
 
-
-  }
-
-  renderVoid(e) {
-    e.preventDefault()
-  }
-
-
-  render() {
 
     if (this.state.loading) {
       content = <strong>Please wait...processing...</strong>
@@ -254,7 +258,7 @@ export default class Home extends Component {
                           <div className="card-header">
                             <h3 className="card-title">
                               <i className="ion ion-clipboard mr-1 primary-color"></i>
-                              Transactions
+                              Paypal Transactions
                             </h3>
                           </div>
                           <div className="card-body">
@@ -280,10 +284,10 @@ export default class Home extends Component {
                                                 id="tbl_transactions_list" width={"100%"}>
                                                 <thead>
                                                   <tr>
-                                                    <th> Id</th>
+                                                    <th className="hidden"> Id</th>
                                                     <th> Customer Name </th>
-                                                    <th> Transaction Ref </th>
-                                                    <th> Transaction Amount </th>
+                                                    <th> Transaction Ref/Token </th>
+                                                    <th> Transaction Amount (USD) </th>
                                                     <th> Transaction Status </th>
                                                     <th> Transaction Date </th>
                                                     <th> Modified By </th>
@@ -294,12 +298,13 @@ export default class Home extends Component {
                                                     this.state.transactions.map((item) => {
                                                       return (
                                                         <tr key={item.id}>
-                                                          <td>{item.id}</td>
+                                                          <td className="hidden">{item.id}</td>
                                                           <td>{item.userFullName}</td>
                                                           <td>{item.transactionRefId}</td>
                                                           <td>{parseFloat(item.amount).toFixed(2)}</td>
                                                           <td>{item.transactionStatus}</td>                                                    
                                                           <td>{item.transactionDate}</td>
+                                                          <td>{item.modifiedBy}</td>
                                                         </tr>
                                                       )
                                                     })

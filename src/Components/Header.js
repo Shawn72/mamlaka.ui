@@ -1,11 +1,19 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import { Navbar, NavItem, NavLink } from "reactstrap"
+import { logOut } from "../Helpers/Helpers"
 
 export class Header extends Component {
 
   renderVoid(e) {
     e.preventDefault()
+  }
+  
+  handleLogOutKeydown(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault()  // Prevent scrolling when the spacebar is pressed
+      logOut()
+    }
   }
 
   render() {
@@ -23,9 +31,13 @@ export class Header extends Component {
           </ul>
 
           <ul className="navbar-nav ml-auto">
-            <NavItem>
+            {/* <NavItem>
               <NavLink tag={Link} className="text-dark" to="/logout"><i className="fas fa-sign-out-alt"></i>&nbsp;Logout</NavLink>
-            </NavItem>
+            </NavItem> */}
+
+            <span tabIndex="0" role="button" onClick={() => logOut()} onKeyDown={this.handleLogOutKeydown} >
+              <i className="fas fa-sign-out-alt fa-2x" style={{ color: "aliceblue" }}></i>
+            </span>
 
             <li className="nav-item">
               <a className="nav-link" data-widget="fullscreen" href="#!" onClick={this.renderVoid} role="button">
